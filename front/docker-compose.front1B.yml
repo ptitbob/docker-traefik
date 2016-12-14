@@ -1,0 +1,25 @@
+version: '2.0'
+
+networks:
+    main:
+
+services:
+    front_http_1_B:
+        container_name: front1B
+        image: nginx:latest
+        networks:
+            - main
+        ports:
+            - 82:80
+        volumes:
+            - ./1/B:/usr/share/nginx/html:ro
+            - ./config/nginx.conf:/etc/nginx/nginx.conf:ro
+        labels:
+            - "traefik.backend=front_http_1"
+            - "traefik.frontend.rule=Host:web1.shipstone.local"
+            - "traefik.docker.network=main"
+            - "traefik.port=80"
+            - "traefik.weight=10"
+            - "traefik.backend.loadbalancer.method=wrr"
+            - "traefik.backend.loadbalancer.sticky=false"
+            - "traefik.protocol=http"

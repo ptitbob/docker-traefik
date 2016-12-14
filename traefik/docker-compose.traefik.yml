@@ -1,0 +1,18 @@
+version: '2.0'
+
+networks:
+    main:
+
+services:
+    traefik:
+        image: traefik:latest
+        container_name: traefik
+        volumes:
+            - ./traefik.toml:/etc/traefik/traefik.toml
+            # liaison socket API Docker (pallier bug ? version beta ????)
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+          - main
+        ports:
+            - "80:80"
+            - "8080:8080"
