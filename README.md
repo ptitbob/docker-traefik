@@ -128,7 +128,7 @@ et
 docker-compose -f front/docker-compose.front2.yml up
 ```
 
-Et si vous regardez dans le console Traefik, vous les verrez apparaitre ! *C'est de la magie ? Non, c'est Traefik et Docker :bowtie: 
+Et si vous regardez dans le console Traefik, vous les verrez apparaitre ! *C'est de la magie ? Non, c'est Traefik et Docker* :bowtie: 
 
 
 
