@@ -1,7 +1,8 @@
 version: '2.0'
 
 networks:
-    main:
+    shipstone_net:
+        external: true
 
 services:
     traefik:
@@ -12,7 +13,7 @@ services:
             # liaison socket API Docker (pallier bug ? version beta ????)
             - /var/run/docker.sock:/var/run/docker.sock
         networks:
-          - main
+          - shipstone_net
         ports:
             - "80:80"
             - "8080:8080"
